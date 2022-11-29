@@ -1,0 +1,30 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 50,
+            "server": "r98du2bxwqkq3shg.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+            "port": 3306,
+            "driver": "MySQL",
+            "username": "le8657zkb7y9jgt7",
+            "database": "rpmiaog2pk3a5nps",
+            "password": "pk7e1iqa4pn337xl",
+            "name": "cinemaster"
+        },
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 50,
+            "server": "r98du2bxwqkq3shg.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "cinemaster-api",
+            "database": "jsocdt9n62cy1jk8",
+            "username": "m0o2ixl3kbi52wi8",
+            "password": "j4clv0x9go32xbp2"
+        }
+    ]
+}
