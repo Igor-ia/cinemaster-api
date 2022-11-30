@@ -7,17 +7,17 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model favoritedmovie {
+model FavoritedMovie {
   userId  String
   movieId String
-  movie   movie  @relation(fields: [movieId], references: [id], map: "FavoritedMovie_movieId_fkey")
-  user    user   @relation(fields: [userId], references: [id], map: "FavoritedMovie_userId_fkey")
+  movie   Movie  @relation(fields: [movieId], references: [id], map: "FavoritedMovie_movieId_fkey")
+  user    User   @relation(fields: [userId], references: [id], map: "FavoritedMovie_userId_fkey")
 
   @@id([userId, movieId])
   @@index([movieId], map: "FavoritedMovie_movieId_fkey")
 }
 
-model movie {
+model Movie {
   id             String           @id
   creatorId      String
   title          String
@@ -25,18 +25,18 @@ model movie {
   rate           String
   poster         String
   createdAt      DateTime         @default(now())
-  user           user             @relation(fields: [creatorId], references: [id], map: "Movie_creatorId_fkey")
-  favoritedmovie favoritedmovie[]
+  user           User             @relation(fields: [creatorId], references: [id], map: "Movie_creatorId_fkey")
+  favoritedmovie FavoritedMovie[]
 
   @@index([creatorId], map: "Movie_creatorId_fkey")
 }
 
-model user {
+model User {
   id             String           @id
   name           String
   email          String
   password       String
   createdAt      DateTime         @default(now())
-  favoritedmovie favoritedmovie[]
-  movie          movie[]
+  favoritedmovie FavoritedMovie[]
+  movie          Movie[]
 }
