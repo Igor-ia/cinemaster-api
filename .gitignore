@@ -3,3 +3,6 @@ node_modules
 .env
 
 database
+
+# Local Netlify folder
+.netlify

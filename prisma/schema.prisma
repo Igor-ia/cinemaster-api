@@ -10,8 +10,8 @@ datasource db {
 model FavoritedMovie {
   userId  String
   movieId String
-  movie   Movie  @relation(fields: [movieId], references: [id], map: "FavoritedMovie_movieId_fkey")
-  user    User   @relation(fields: [userId], references: [id], map: "FavoritedMovie_userId_fkey")
+  movie   Movie  @relation(fields: [movieId], references: [id])
+  user    User   @relation(fields: [userId], references: [id])
 
   @@id([userId, movieId])
   @@index([movieId], map: "FavoritedMovie_movieId_fkey")
@@ -25,7 +25,7 @@ model Movie {
   rate           String
   poster         String
   createdAt      DateTime         @default(now())
-  user           User             @relation(fields: [creatorId], references: [id], map: "Movie_creatorId_fkey")
+  user           User             @relation(fields: [creatorId], references: [id])
   favoritedmovie FavoritedMovie[]
 
   @@index([creatorId], map: "Movie_creatorId_fkey")
