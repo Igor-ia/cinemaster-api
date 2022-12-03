@@ -4,7 +4,6 @@ import jwt from 'jsonwebtoken';
 import { string, z } from 'zod';
 
 const RegisterSchema = z.object({
-    id: string(),
     email: z.string().email('Email is invalid'),
     name: z.string().min(1, { message: "Name is required" }),
     password: z.string()
@@ -13,7 +12,6 @@ const RegisterSchema = z.object({
 });
 
 const LoginSchema = z.object({
-    id: string(),
     email: z.string().email('Email is invalid'),
     password: z.string()
         .min(6, { message: 'Password must be at least 6 characters' })

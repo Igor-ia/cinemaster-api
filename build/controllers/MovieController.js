@@ -13,7 +13,6 @@ exports.store = exports.search = exports.show = exports.index = void 0;
 const client_1 = require("@prisma/client");
 const zod_1 = require("zod");
 const MovieSchema = zod_1.z.object({
-    id: zod_1.z.string(),
     creatorId: zod_1.z.string(),
     title: zod_1.z.string().min(1, { message: 'Movie Title is required' }),
     synopsis: zod_1.z.string().min(1, { message: 'Movie Synopsis is required' }),

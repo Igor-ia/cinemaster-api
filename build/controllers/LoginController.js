@@ -18,7 +18,6 @@ const bcryptjs_1 = __importDefault(require("bcryptjs"));
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const zod_1 = require("zod");
 const RegisterSchema = zod_1.z.object({
-    id: (0, zod_1.string)(),
     email: zod_1.z.string().email('Email is invalid'),
     name: zod_1.z.string().min(1, { message: "Name is required" }),
     password: zod_1.z.string()
@@ -26,7 +25,6 @@ const RegisterSchema = zod_1.z.object({
         .max(20, { message: 'Password must be a max of 20 characters ' }),
 });
 const LoginSchema = zod_1.z.object({
-    id: (0, zod_1.string)(),
     email: zod_1.z.string().email('Email is invalid'),
     password: zod_1.z.string()
         .min(6, { message: 'Password must be at least 6 characters' })

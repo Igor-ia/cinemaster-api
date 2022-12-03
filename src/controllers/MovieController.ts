@@ -2,7 +2,6 @@ import { PrismaClient } from '@prisma/client'
 import { z } from 'zod';
 
 const MovieSchema = z.object({
-    id: z.string(),
     creatorId: z.string(),
     title: z.string().min(1, { message: 'Movie Title is required' }),
     synopsis: z.string().min(1, { message: 'Movie Synopsis is required' }),
