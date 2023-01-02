@@ -1,11 +1,10 @@
 import express, { query } from 'express';
 import cors from 'cors';
-import serveless from 'serverless-http';
 
-import movieRoute from '../routes/movieRoute';
-import loginRoute from '../routes/loginRoute';
-import favoriteRoute from '../routes/favoriteRoute';
-import dislikeRoute from '../routes/dislikeRoute';
+import movieRoute from './routes/movieRoute';
+import loginRoute from './routes/loginRoute';
+import favoriteRoute from './routes/favoriteRoute';
+import dislikeRoute from './routes/dislikeRoute';
 
 //Express configuration
 const app = express();
@@ -20,6 +19,4 @@ app.use('/login', loginRoute)
 app.use('/favorites', favoriteRoute)
 app.use('/dislike', dislikeRoute)
 
-// app.listen(3333);
-
-module.exports.handler = serveless(app);
+app.listen(3333);
